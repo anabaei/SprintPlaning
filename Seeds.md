@@ -9,7 +9,12 @@ categories.each do |category|
   Category.create(name: category)
 end
 ```
-* Or we can use factorygirl 
+* Then inside form we would have the selection list as below with values equal to ids while representating names as an attribute 
+```ruby
+<%= f.collection_select :category_id, Category.all, :id, :name %>
+```
+
+* In seeds we can use factorygirl 
 ``` ruby
 20.times do
   user = Faker::StarWars.character
@@ -29,8 +34,4 @@ end
 ```ruby
   Category.destroy_all
   User.destroy_all
-```
-* Then inside form we would have the selection list as below with values equal to ids while representating names as an attribute 
-```ruby
-<%= f.collection_select :category_id, Category.all, :id, :name %>
 ```
