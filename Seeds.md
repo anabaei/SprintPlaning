@@ -9,7 +9,7 @@ categories.each do |category|
   Category.create(name: category)
 end
 ```
-* Then inside form we would have the selection list as below with values equal to ids while representating names as an attribute 
+* Then inside form we would have the selection list as below with values equal to ids while representating names as an attribute. Now in params there is `:category_id` with value
 ```ruby
 <%= f.collection_select :category_id, Category.all, :id, :name %>
 ```
