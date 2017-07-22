@@ -30,4 +30,7 @@ end
   Category.destroy_all
   User.destroy_all
 ```
-
+* Then inside form we would have the selection list as below with values equal to ids while representating names as an attribute 
+```ruby
+<%= f.collection_select :category_id, Category.all, :id, :name %>
+```
