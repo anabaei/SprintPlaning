@@ -50,7 +50,9 @@ To read from params and create a new user we need to tell activerecord which for
 ``` ruby
 input = params.require(:user).permit(:first_name, :last_name, :email, :password)
 User.create(input)
+redirect_to home_path, notice: 'Thank you for signing up!' 
 ```
+Also inorder to see the flash message in new page when redirecting, we pass notice: as an argument, then inside the flash hash it displays 
 
 ### Validation
 
