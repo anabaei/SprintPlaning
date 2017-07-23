@@ -45,6 +45,12 @@ def show
 <%= form_for @user do |f| %>
 ```
 To address the form, first we have to set `instance variable` in controller  `@user = User.new` and in routes `post('users/', to: 'users#create')` beucase default format of form_for is set to post users_path address.  
+#### Create 
+to read from params and create a new user we need below codes inside create action
+``` ruby
+input = params.require(:user).permit(:first_name, :last_name, :email, :password)
+User.create(input)
+```
 
 ### Validation
 
