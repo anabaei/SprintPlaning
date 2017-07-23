@@ -40,7 +40,7 @@ def show
 
 # Authentication
 * Generate a model with fname,lname, .. and password_digest. Then inside the model add `has_secure_password`. In this way we would have password field in views and controller but in model password_digest. All these jobs are done by `bcrypt` gem
-* Generate a moedl & controller for users, then create a form_for 
+* Generate a controller for users, then create a form_for 
 ``` ruby
 <%= form_for @user do |f| %>
 ```
