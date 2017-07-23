@@ -43,7 +43,7 @@ def show
 ``` ruby
 <%= form_for @user do |f| %>
 ```
-To address the form, first we have to set instance variable in controller as `User.new` and in routes `post('users/', to: 'users#create')` beucase default format of form_for is set to post users_path address.  
+To address the form, first we have to set `instance variable` in controller  `@user = User.new` and in routes `post('users/', to: 'users#create')` beucase default format of form_for is set to post users_path address.  
 
 ### Validation
 
