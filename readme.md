@@ -52,8 +52,17 @@ input = params.require(:user).permit(:first_name, :last_name, :email, :password)
 User.create(input)
 redirect_to home_path, notice: 'Thank you for signing up!' 
 ```
-Also inorder to see the flash message in new page when redirecting, we pass notice: as an argument, then inside the flash hash it displays 
-
+Also inorder to see the flash message in new page when redirecting, we pass an argument to notice: or alert then inside the flash hash they display. In layout we would have something like this
+```ruby
+<% if flash[:notice] %>
+    <div> <%= flash[:notice] %></div>
+     <% elsif flash[:alert] %> <div><%= flash[:alert] %></div>
+<% end %>
+```
+To fadeout alert, in view home page we add this 
+```javascript
+  $(".alert").fadeOut(3000 );
+```
 ### Validation
 
 * We can add below validations on first line of a model
