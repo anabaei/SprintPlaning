@@ -63,6 +63,8 @@ User.create(input)
 
 * ...
 
+we can pass a local variabl as an instance @ to templates. 
+render :index, :locals => { :stuff => @stuff } 
 
 
 
