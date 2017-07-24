@@ -38,7 +38,7 @@ def show
   end 
 ```
 
-# Authentication
+## Authentication
 * Generate a model with fname,lname, .. and password_digest. Then inside the model add `has_secure_password`. In this way we would have password field in views and controller but in model password_digest. All these jobs are done by `bcrypt` gem
 * Generate a controller for users, then create a form_for 
 ``` ruby
@@ -83,6 +83,9 @@ To fadeout alert, in view home page we add this
     end 
  ```
  * First theuser finds if there is any user with assoiciated email, then initialize the `session[:user_id]` which is in default with Rails.
+
+## Authorization
+
  
 ### Validation
 
