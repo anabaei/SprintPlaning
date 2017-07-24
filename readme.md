@@ -73,7 +73,6 @@ To fadeout alert, in view home page we add this
 	<%= password_field_tag :password %>
 	<%= submit_tag %> 
 <% end %>
-```
 
  
 
