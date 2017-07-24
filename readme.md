@@ -79,7 +79,6 @@ To fadeout alert, in view home page we add this
  
  
  
- 
 ### Validation
 
 * We can add below validations on first line of a model
