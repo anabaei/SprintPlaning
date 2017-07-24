@@ -86,7 +86,12 @@ To fadeout alert, in view home page we add this
 
 Notice: params[:email] is different than params.require(:email) which is nested hash and the first one is not
 ## Authorization
-
+* To authorize users we check the `session[:user_id]` by defining an action which is know for rails. Then the return value is instance variable @current_user. It checks if it is initialize then skip it otherwise find a user by id from database. 
+```ruby
+def current_user
+   @current_user ||= User.find_by(id: session[:user_id])
+end
+``` 
  
 ### Validation
 
