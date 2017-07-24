@@ -92,7 +92,8 @@ def current_user
    @current_user ||= User.find_by(id: session[:user_id])
 end
 ``` 
- 
+* Then to show/hide a section just need add if condition `if (current_user.present?)` in views.
+
 ### Validation
 
 * We can add below validations on first line of a model
