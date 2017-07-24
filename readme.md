@@ -85,7 +85,7 @@ To fadeout alert, in view home page we add this
 ``` ruby
   validates :age, presence: true, uniqueness: true, numericality: { greater_than_or_equal_to: 10 }
 ```
-
+* Then inside 
 
 
 * ...
