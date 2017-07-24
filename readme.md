@@ -95,6 +95,19 @@ end
 * Then to show/hide a section just need add if condition `if (current_user.present?)` in views.
 in some cases current_user is nil but session still keeps the old user, therefore we create a more reliable function as signin 
 https://github.com/anabaei/codeCore/blob/master/Day25_1toMany_JS/Answer_qustions_1toMany/app/controllers/application_controller.rb
+* To sign out 
+```ruby
+def destroy
+    session[:user_id] = nil
+    redirect_to root_path, notice: 'Signed out!'
+  end
+```
+* To address we hace 
+```ruby
+<%= link_to 'Sign Out', session_path, method: :delete %>
+```
+* CanCan example:
+https://github.com/CodeCoreYVR/awesome_answers_jun_2017/tree/master/app/controllers/admin
 
 ### Validation
 
