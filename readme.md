@@ -63,6 +63,20 @@ To fadeout alert, in view home page we add this
 ```javascript
   $(".alert").fadeOut(3000 );
 ```
+#### Sign in 
+ * To sign in we need form_tag instead of form_for, and we need to make tag labels as
+ ```ruby
+ <%= form_tag users_index_path do  %>
+	<%= label_tag :email %>
+	<%= email_field_tag :email %>
+    <%= label_tag :password %>
+	<%= password_field_tag :password %>
+	<%= submit_tag %> 
+<% end %>
+```
+
+ 
+
 ### Validation
 
 * We can add below validations on first line of a model
