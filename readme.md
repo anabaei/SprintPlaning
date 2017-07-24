@@ -111,7 +111,13 @@ we can pass a local variabl as an instance @ to templates.
 render :index, :locals => { :stuff => @stuff } 
 
 ### TDD
-
+* 
+* Add below to .rspec file 
+```ruby
+--color
+--require spec_helper
+--format NyanCatFormatter
+```
 
 https://github.com/CodeCoreYVR/bootcamp_summary_notes/blob/master/week_05/rspec_with_rails_models.md
 
