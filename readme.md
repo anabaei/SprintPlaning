@@ -74,10 +74,12 @@ To fadeout alert, in view home page we add this
 	<%= submit_tag %> 
 <% end %>
 ``` 
-* The destination of submiting this form can be varied and we can put any url as path here, then inside the controller action 
-we access to each field seperately like `params.require(:email)` 
- 
 
+* In routes we define `post('users/index', to: 'users#index')` destination of submiting form defined in routes as getting `users/index` and direct it to `users#index` and we access to each field seperately like `params.require(:email)` 
+ 
+ 
+ 
+ 
 ### Validation
 
 * We can add below validations on first line of a model
