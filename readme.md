@@ -214,7 +214,7 @@ inside the model/user.rb
     
      end 
 #### All above were inside  RSpec model do therefore they go directly to that model.
-
+https://github.com/anabaei/codeCore/blob/master/Day31_RailsAdvance/Rails_Advance.js
 
 
 usfulle links:
