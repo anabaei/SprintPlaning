@@ -73,7 +73,9 @@ To fadeout alert, in view home page we add this
 	<%= password_field_tag :password %>
 	<%= submit_tag %> 
 <% end %>
-
+``` 
+* The destination of submiting this form can be varied and we can put any url as path here, then inside the controller action 
+we access to each field seperately like `params.require(:email)` 
  
 
 ### Validation
