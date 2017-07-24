@@ -93,6 +93,8 @@ def current_user
 end
 ``` 
 * Then to show/hide a section just need add if condition `if (current_user.present?)` in views.
+in some cases current_user is nil but session still keeps the old user, therefore we create a more reliable function as signin 
+https://github.com/anabaei/codeCore/blob/master/Day25_1toMany_JS/Answer_qustions_1toMany/app/controllers/application_controller.rb
 
 ### Validation
 
