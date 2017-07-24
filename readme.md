@@ -75,8 +75,11 @@ To fadeout alert, in view home page we add this
 <% end %>
 ``` 
 
-* In routes we define `post('users/index', to: 'users#index')` destination of submiting form defined in routes as getting `users/index` and direct it to `users#index` and we access to each field seperately like `params.require(:email)` 
+* In routes we define `post('findit/', to: 'users#find')` destination of submiting form defined in routes as getting `findit` and direct it to `users#find` inside find action users contrller we have
+ ```ruby
+ user = User.find_by(email: params[:email])
  
+ ```
  
  
 ### Validation
