@@ -77,10 +77,12 @@ To fadeout alert, in view home page we add this
 
 * In routes we define `post('findit/', to: 'users#find')` destination of submiting form defined in routes as getting `findit` and direct it to `users#find` inside find action users contrller we have
  ```ruby
- user = User.find_by(email: params[:email])
- 
+     theuser = User.find_by(email: params[:email])
+     if (theuser.authenticate(params[:password]))
+     session[:user_id] = theuser.id
+    end 
  ```
- 
+ * First theuser finds if there is any user with assoiciated email, then initialize the `session[:user_id]` which is in default with Rails.
  
 ### Validation
 
