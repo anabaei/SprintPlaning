@@ -124,6 +124,7 @@ we can pass a local variabl as an instance @ to templates.
 render :index, :locals => { :stuff => @stuff } 
 
 ### TDD
+*  rails generate rspec:install
 *  gem 'nyan-cat-formatter'
 * Add below to .rspec file 
 ```ruby
