@@ -84,6 +84,7 @@ To fadeout alert, in view home page we add this
  ```
  * First theuser finds if there is any user with assoiciated email, then initialize the `session[:user_id]` which is in default with Rails.
 
+Notice: params[:email] is different than params.require(:email) which is nested hash and the first one is not
 ## Authorization
 
  
