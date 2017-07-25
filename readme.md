@@ -123,7 +123,7 @@ https://github.com/CodeCoreYVR/awesome_answers_jun_2017/tree/master/app/controll
 we can pass a local variabl as an instance @ to templates. 
 render :index, :locals => { :stuff => @stuff } 
 
-### TDD
+# TDD with RSPECT
 *  rails generate rspec:install
 *  gem 'nyan-cat-formatter'
 * Add below to .rspec file 
@@ -140,7 +140,7 @@ https://github.com/CodeCoreYVR/bootcamp_summary_notes/blob/master/week_05/rspec_
 #### Above that we have another layer which we have more functionality testing  controllers. Since controllers are brought everything togather we test if everything is render correctly or user has been redirected or the response to the user is authorized
 #### another layer above that is functional test and testing as if a user is actually changing things, clicking on browser.  
 
-# TDD with RSPECT 
+ 
 it uses for Rails app and has its own features to help testing 
 #### Create RSPEC_Demo
 
