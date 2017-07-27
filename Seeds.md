@@ -68,11 +68,25 @@ users = User.all
  # idea.likers = users.shuffle.slice(0..rand(users.count))
 end
 ```
+#### Many to Many seed
+```ruby
+30.times do
+  vote = Vote.create(
+    is_up: true,
+    user: users.sample,
+    review: reviews.sample
+  )
+
+ # question.likers = users.shuffle.slice(0..rand(users.count))
+end
+```
 
 ### Display with Cowsay
 ```ruby
 puts Cowsay.say("Created #{users.count} users", :tux)
 puts Cowsay.say('Created 100 questions', :cow)
+puts Cowsay.say("Created #{ideas.count} ideas", :turtle)
+puts Cowsay.say("Created #{reviews.count} reviews", :moose)
 ```
 
 
