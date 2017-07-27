@@ -35,3 +35,27 @@ end
   Category.destroy_all
   User.destroy_all
 ```
+#### One to Many relation
+* Each user has many idea and each idae belongs to each. So in idea table there is a foreign key for user_id. To address a random user we use `sample` function which randomly takes one object. 
+
+```ruby
+users = User.all
+
+100.times do
+  idea = Idea.create(
+    title: Faker::ChuckNorris.fact,
+    des: Faker::Hacker.say_something_smart,
+    user: users.sample
+  )
+
+ # idea.likers = users.shuffle.slice(0..rand(users.count))
+end
+```
+
+### Display with Cowsay
+```ruby
+puts Cowsay.say("Created #{users.count} users", :tux)
+puts Cowsay.say('Created 100 questions', :cow)
+```
+
+
