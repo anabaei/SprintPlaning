@@ -62,9 +62,29 @@ Also you can have simplest way in index.html in public folder
 ## Event 
 * inside Hello.js after h2 and inside className=Hello you can add this 
 ```javascript
-  <h1 onMouseLeave={() => {console.log('Mouse Left!')}}> jjjj </h1>
+  <h1 onMouseOver={() => {console.log('Mouse Left!')}}> jjjj </h1>
 ```
-
+* Having multiple call backs on one component. colorCycle is a function defined in that class 
+```javascript
+<h1 onClick={this.colorCycle}
+      className='Hello2'
+      onMouseOver={() => {console.log("Hover!"); this.setState({hovered: false})}}
+  > dd
+  </h1>
+```
+```javascript 
+colorCycle(){
+ console.log(this);
+}
+```
+* to have access this from function, we need to bind this in constructor, so we define a constructor in class
+```javascript
+constructor (props) {
+   super(props);
+  this.colorCycle = this.colorCycle.bind(this)
+}
+```
+* Now when we click it knows `this` 
 
 
 
