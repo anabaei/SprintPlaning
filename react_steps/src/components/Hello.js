@@ -21,8 +21,8 @@ class Hello extends Component
 
      <div className="Hello">
         <h2> {listItems} </h2>
-        <h3> {b} </h3>
-
+        <h3> {this.props.now.map((cc) => <h4> {cc} </h4>)} </h3>
+        <h1 onMouseLeave={() => {console.log('Mouse Left!')}}> jjjj </h1>
     </div>
    );
  }
