@@ -103,13 +103,13 @@ colorCycle() {
     ({amir: props, ali: "DFD", cnt: state.cnt + 1}));
   }
 ```
-*first arg is previous state and second is props.  Now property of cnt in state is incremeant 
+* first arg is previous state and second is props.  Now property of cnt in state is incremeant 
 ------
 ### Style
 * Define style after render and before return and add style tag after classNmae
 ```javascript
   const style = {borderRadius: type === 'circle' ? '99999999px' : '0px',width: '150px',height: '150px', backgroundColor:   COLORS[this.state.cnt]}
-    return ( <div onClick={this.colorCycle} className='Shape' style={style} /> );
+  return ( <div onClick={this.colorCycle} className='Shape' style={style} /> );
 ```
 
 
