@@ -85,6 +85,21 @@ constructor (props) {
 }
 ```
 * Now when we click it knows `this` 
-
-
-
+-----------------
+### Change dynamicly the state in a function
+* in function we can set the state as 
+```javascript
+colorCycle() {
+    console.log(this);
+    this.setState({amir: props, ali: "DFD", cnt: 1});
+  }
+```
+* but to have a counter and increament or decremnt it we need to define a function to setstate because state and props may update asychronously so we need like this 
+```javascript
+colorCycle() {
+    console.log(this);
+    this.setState((state , props) =>
+    ({amir: props, ali: "DFD", cnt: state.cnt + 1}));
+  }
+```
+*first arg is previous state and second is props.  Now property of cnt in state is incremeant 
