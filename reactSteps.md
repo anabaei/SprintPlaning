@@ -60,6 +60,7 @@ Also you can have simplest way in index.html in public folder
 ```
 ---------------
 ## Event 
+* React has a list of defined `events`
 * inside Hello.js after h2 and inside className=Hello you can add this 
 ```javascript
   <h1 onMouseOver={() => {console.log('Mouse Left!')}}> jjjj </h1>
@@ -103,3 +104,14 @@ colorCycle() {
   }
 ```
 *first arg is previous state and second is props.  Now property of cnt in state is incremeant 
+------
+### Style
+* Define style after render and before return and add style tag after classNmae
+```javascript
+  const style = {borderRadius: type === 'circle' ? '99999999px' : '0px',width: '150px',height: '150px', backgroundColor:   COLORS[this.state.cnt]}
+    return ( <div onClick={this.colorCycle} className='Shape' style={style} /> );
+```
+
+
+
+
