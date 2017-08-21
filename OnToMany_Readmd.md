@@ -100,6 +100,29 @@ To fadeout alert, in view home page we add this
   $(".alert").fadeOut(3000 );
 ```
 #### Sign in 
+ * suggested to create a session controller with new create and destroy actions, then assing the form like this to that 
+ ```ruby
+ <%= simple_form_for :session, as: :new_session, url: sessions_path do |f| %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.button :submit, 'Sign In' %>
+<% end %>
+ ```
+ * and Controller 
+ ```ruby 
+ def create
+    user = User.find_by(email: params[:session][:email])
+
+     if user #&.authenticate(params[:session][:password])
+       session[:user_id] = user.id
+       redirect_to home_path, notice: 'Thank you for signing in! ❤️'
+     else
+       flash.now[:alert] = 'Wrong email or password!'
+       render :new
+     end
+  end
+ ```
+ * or you can go with your method as below 
  * To sign in we need form_tag instead of form_for, and we need to make tag labels as
  ```ruby
  <%= form_tag users_index_path do  %>
