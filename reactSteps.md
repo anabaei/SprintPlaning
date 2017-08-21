@@ -1,4 +1,4 @@
-# React I 
+# React 
 
 ```javascript
 npm install -g create-react-app
