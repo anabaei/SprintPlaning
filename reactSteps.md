@@ -194,9 +194,10 @@ this.setState({
 ```javascript
   componentDidMount () { Question.getAll().then(questions => this.setState({questions}));}
 ```
+* Save question inside state then return it between a tag 
 * Get all questions and pass as a promise `questions` `=>` to a function which setState with all questions. 
 ```javascript
-{ this.state.questions.toString() }
+<p> { this.state.questions.toString() } </p>
 ```
 
 --------
