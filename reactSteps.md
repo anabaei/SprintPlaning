@@ -199,7 +199,42 @@ this.setState({
 ```javascript
 <p> { this.state.questions.toString() } </p>
 ```
-
+# Write in Json
+* to submit a form into database we submit onClick `this.createQuestion`. 
+* We have push method in history prop
+```javascript
+  createQuestion (question) {
+    Question
+      .post(question)
+      .then(({id}) => this.props.history.push(`/questions/${id}`));
+  }
+```
+*
+-------
+## Link To
+* Intstall Router 
+```javascript
+yarn add react-router-dom
+```
+* import it 
+```javascript
+import { BrowserRouter as Router, Link, Route} from 'react-router-dom';
+```
+* Wrap retrun components where you want to access router then put Link to a path 
+```javascript
+ renderEntries() {
+  return(
+    <Router>
+     <Link to={'/test'}> Link </Link>
+ </Router>
+```
+* Now you should see the link
+* Define Route to handle the link between `Router` tags.
+* we can wrap Route with Switch 
+```javascript
+<Route exact path='/test' component={Test} />
+```
+* Usually in app.js, on top links like navbar and button, rendering the pages by Routes. 
 --------
 ### Add live time
 * add time into constructor and define componentdidmount for whenever the dom loaded 
