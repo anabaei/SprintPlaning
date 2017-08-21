@@ -106,11 +106,105 @@ colorCycle() {
 * first arg is previous state and second is props.  Now property of cnt in state is incremeant 
 ------
 ### Style
-* Define style after render and before return and add style tag after classNmae
+* Define const style after render and add style tag after classNmae
 ```javascript
   const style = {borderRadius: type === 'circle' ? '99999999px' : '0px',width: '150px',height: '150px', backgroundColor:   COLORS[this.state.cnt]}
   return ( <div onClick={this.colorCycle} className='Shape' style={style} /> );
 ```
+-------
+# Form 
+* Add a form in a file call greeting.js and return it 
+```javascript
+return (
+      <div className='GuestBook'>
+        <h1>Guest Book</h1>
+
+        <div className='GuestBookEntries'>
+          {this.renderEntries()}
+        </div>
+
+        <form onSubmit={this.addEntry}>
+          <div>
+            <label htmlFor='message'>Message</label> <br />
+            <textarea id='message' name='message' />
+          </div>
+
+          <div>
+            <label htmlFor='name'>Name</label> <br />
+            <input id='name' name='name' />
+          </div>
+
+          <div>
+            <input type='submit' value='submit' />
+          </div>
+        </form>
+      </div>
+    )
+```
+* To avoid null value for message add this to constructor `this.state = { message: "" };`
+* Just need to define addEntry and renderEntries fucntions.
+```javascript
+addEntry(event){
+  event.preventDefault();
+  const {currentTarget} = event;
+  const fData = new FormData(currentTarget);
+  this.setState((state, props) =>({message: fData.get('message')}));
+  }
+```
+* prevent defualt is necessary for avoiding submiting, then assign event into a formdata constant to be able to use get and etc methods. Then setState of message. Now to show it on page should just define a funciton to return state.message as below 
+```javascript
+renderEntries() {
+  return(
+   <h1> {this.state.message} </h1> 
+   )
+ }
+```
+-----------
+* To have a list of all entries and not only last message, we need an stack memory. State has a stack memory array so we define `entries: []` in constructor and then contcat messages into it. Everytime `state.entries` property has an array which updated! 
+```javascript
+const {entries} = this.state;
+this.setState({
+      entries: entries.concat([{
+        message: fData.get('message')
+      }])
+    });
+```
+* Then the rendersEntry is a map go through all entries
+```javascript
+ renderEntries() {
+  return(
+   <h1> {this.state.entries.map((entry, index) =>
+     (<p>{entry.message} </p>))} </h1> )
+    }
+```
+* Also we can wrap entry.message by styles and havign key index 
+```javascript
+   <div key={index} style={{backgroundColor: index % 2 ? 'White' : 'WhiteSmoke', padding: '5px'}}> 
+      <p>{entry.message}</p>
+    </div>
+```
+* Adding `key={index}` is neccessary 
+--------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
