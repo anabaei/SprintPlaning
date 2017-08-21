@@ -184,7 +184,56 @@ this.setState({
     </div>
 ```
 * Adding `key={index}` is neccessary 
+* To clear form after submition add second arg in setState 
+```javascript
+,() => { currentTarget.reset() }
+```
 --------
+### Add live time
+* add time into constructor and define componentdidmount for whenever the dom loaded 
+* in constructor  
+```javascript
+  time: new Date().toString()
+```
+```javascripr
+componentDidMount () {
+ setInterval(() => {
+   this.setState({time: new Date().toString() });
+ })
+}
+```
+* then add time tag in render components
+-----------
+### Add Counter 
+* it is independent of time. Start is a function which each one second add one to count and start is a button to call the function. count is a another property of state so we should bind it in costructor as well. 
+```javascript
+start() {
+      this.intervalId = setInterval(() => {
+        const {count} = this.state;
+        this.setState({count: count + 1});
+      }, 10);
+  }
+```
+* First we define count to zero in constructor, then
+```javascript
+ <button onClick={this.start}>Start</button>
+ ```
+* `setInterval` is a clear function, we can use 'clearInterval` to stop it. 
+-------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
