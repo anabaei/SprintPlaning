@@ -188,6 +188,17 @@ this.setState({
 ```javascript
 ,() => { currentTarget.reset() }
 ```
+------- 
+# Read Json 
+* Create a model based utilized/Question.js as you did in Rails API so we access Question.getAll and other methods
+```javascript
+  componentDidMount () { Question.getAll().then(questions => this.setState({questions}));}
+```
+* Get all questions and pass as a promise `questions` `=>` to a function which setState with all questions. 
+```javascript
+{ this.state.questions.toString() }
+```
+
 --------
 ### Add live time
 * add time into constructor and define componentdidmount for whenever the dom loaded 
