@@ -87,6 +87,56 @@ constructor (props) {
 ```
 * Now when we click it knows `this` 
 -----------------
+## PASS objects like ids between components 
+
+* Inisde `createAuction` at render part we have signInForm. It first calls createToken function and send the result as props to 
+`SignInForm`. 
+```javascript
+  <AuctionForm createAuction={this.createAuction} />
+```
+The createAuction function is defined on this page but will implement after it goes to AuctionForm. in AuctionForm there is   const `{createAuction = () => {}} = props;` to have this action reserved, then in an event handlere we call it as 
+```javascript
+const formData = new FormData(currentTarget);
+createAuction({
+      title: formData.get('title'),
+      details: formData.get('details')
+    });
+```
+Then it go back to call `createAuction (auction) {` with params which are tile and details 
+To pass more like auction ids we should modify slightly like 
+```javascript
+<AuctionForm createAuction={this.createAuction} auctionidd={this.state.auction_id} />
+```
+inside on `AuctionForm` then
+```javascript
+cont {createAuction = () => {}} = props, auctionId = () => {}} = props}; 
+```
+then call it with two params 
+```javascript
+createAuction({
+      title: formData.get('title'),
+      details: formData.get('details')
+    }, auctionId);
+```
+and finaly modify the `createAuction` with two params 
+```javascript
+reateAuction (auction) {
+    Auction
+      .post(auction)
+      .then(({id}) => this.props.history.push(`/auctions/${id}`));
+      this.props.history.push(`/`);
+  }
+```
+* modified version accepting two params 
+```javascript
+reateAuction (auction, auctionid) {
+    Auction
+      .post(auction)
+      .then(({id}) => this.props.history.push(`/auctions/${id}`));
+      this.props.history.push(`/`);
+  }
+```
+-----------------
 ### Change dynamicly the state in a function
 * in function we can set the state as 
 ```javascript
