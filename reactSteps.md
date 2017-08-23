@@ -103,7 +103,8 @@ createAuction({
     });
 ```
 Then it go back to call `createAuction (auction) {` with params which are tile and details 
-To pass more like auction ids we should modify slightly like 
+### Pass two params 
+To pass more than one params we should modify slightly like 
 ```javascript
 <AuctionForm createAuction={this.createAuction} auctionidd={this.state.auction_id} />
 ```
