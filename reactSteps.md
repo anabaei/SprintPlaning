@@ -89,7 +89,7 @@ constructor (props) {
 -----------------
 ## PASS objects like ids between components 
 
-* Inisde `createAuction` at render part we have signInForm. It first calls createToken function and send the result as props to 
+* Inisde `createAuction` at render part we have signInForm.
 `SignInForm`. 
 ```javascript
   <AuctionForm createAuction={this.createAuction} />
