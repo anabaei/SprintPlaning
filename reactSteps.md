@@ -39,25 +39,24 @@ and inside Hello.js
 ```javascript
 <h3> {this.props.name.map((cc) => <h4> {cc} </h4>)} </h3>
 ```
--------------
-#### Bootstrap 
-* Check React bootstrap components to have them easily in your code 
-https://react-bootstrap.github.io/components.html
+----------
+### UI Component 
+
 ```javascript
- npm install --save bootstrap
+npm install semantic-ui-react --save
+npm install semantic-ui-css --save
 ```
-inside index.js import so you have Bootstrap working in the whole app
+add to everywhere you want to use 
 ```javascript
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { Button } from 'semantic-ui-react'
 ```
-inside app.js to see it works! 
+add to index.js
 ```javascript
-<button type="button" className="btn btn-primary">Primary</button>
+import 'semantic-ui-css/semantic.min.css';
 ```
-Also you can have simplest way in index.html in public folder
-```javascript
- <Button bsStyle="primary">Primary</Button>
-```
+🤗 Then done!
+https://react.semantic-ui.com/usage
+
 ---------------
 ## Event 
 * React has a list of defined `events`
