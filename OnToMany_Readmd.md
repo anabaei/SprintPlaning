@@ -79,7 +79,7 @@ def show
 ```ruby
 rails g model User username passowrd_digest
 ```
-* Then addd `has_secure_password` to user model to use the gem `bcrypt` whenever you want to create new user in model and convert password attribute from user controller to password_digest in model. In controller we have 
+* Then add `has_secure_password` to user model to use the gem `bcrypt` whenever you want to create new user in model and convert password attribute from user controller to password_digest in model. In controller we have 
 ```ruby
 def create
     User.create(params.permit(:username, :password))
