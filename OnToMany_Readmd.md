@@ -74,6 +74,18 @@ def show
   end 
 ```
 
+## Bcrypt Gem 
+* In rails create user model as 
+```ruby
+rails g model User username passowrd_digest
+```
+* Then addd `has_secure_password` to user model to use the gem `bcrypt` whenever you want to create new user in model and convert password attribute from user controller to password_digest in model. In controller we have 
+```ruby
+def create
+    User.create(params.permit(:username, :password))
+  end
+```
+* Then in a way it saves at database is password_digest
 ## Authentication
 * Generate a model with fname,lname, .. and password_digest. Then inside the model add `has_secure_password`. In this way we would have password field in views and controller but in model password_digest. All these jobs are done by `bcrypt` gem
 * Generate a controller for users, then create a form_for 
