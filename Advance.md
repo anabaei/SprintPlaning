@@ -1,7 +1,7 @@
 https://github.com/anabaei/codeCore/tree/master/Day42_API_Rails/awesome_answers_jun_2017
 
 https://github.com/anabaei/codeCore/tree/master/Day42_API_Rails/AwesomeAnswerSPA
-[google map json](https://github.com/apneadiving/Google-Maps-for-Rails#generating-json)
+* [google map json](https://github.com/apneadiving/Google-Maps-for-Rails#generating-json)
 ## Railsl API 
 ```ruby
 pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
