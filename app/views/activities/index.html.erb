@@ -1,12 +1,51 @@
 
 
- <!-- Check the list of all activities in order -->
-<%   @activities.each do |act| %><br />
-   <% like_exist = false %>
-    <%= act.name  %>
-     <%= image_tag act.url_img %>
+<style>
+  .image{
+    height: 100%;
+    max-height: 220px;
+    width: auto;
+    max-width: 220px;
 
-           <!-- For each activity check in the list of all users that liked this activity to find whether is the current user  -->
+  }
+  .image1{
+
+    max-width: 220px;
+
+  }
+
+
+
+
+</style>
+
+
+<div class="col-md-12" style="background-color: #1abc9c;">
+  <nav class="nav nav-pills flex-column flex-sm-row">
+<a class="flex-sm-fill text-sm-center nav-link active" href="#">Active</a>
+<a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
+<a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
+<a class="flex-sm-fill text-sm-center nav-link disabled" href="#">Disabled</a>
+</nav>
+
+</div>
+<div class="row">
+  <div class="col-md-2" style="background-color: #1abc9c;" >
+
+  sss<br />  sss<br />   sss<br />  sss<br /> sss<br />  sss<br />  sss<br />  sss<br />
+  </div>
+
+ <div class="row col-md-8">
+ <!-- Check the list of all activities in order -->
+ <%   @activities.each do |act| %>
+   <% like_exist = false %>
+
+   <div class=" col-md-4 ">
+      <div style="font-size:130%;" > <%= act.name  %> </div>
+      <div>  <%= image_tag act.url_img, class: "image" %> </div>
+
+  <!-- For each activity check in the list of all users that liked this activity to find whether is the current user  -->
+
     <% act.liked_user.each do |usr|  %>
         <% if (@liked != nil && usr.id == current_user.id) %>
               <% like_exist = true %>
@@ -21,7 +60,7 @@
      <% end %>
 
 
-
+   </div>
      <% a = Like.where(activity_id: act.id) %>
      <% a.size %>
      <% session[:user_id].present? %>
@@ -29,3 +68,6 @@
 
 
 <% end %>
+
+</div>
+</div>
