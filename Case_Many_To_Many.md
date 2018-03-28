@@ -4,7 +4,7 @@
 ```linux
 rails g model user first_name last_name email password_digest
 ```
-* In user model add
+* User model
 ```ruby
 has_secure_password
 ```
