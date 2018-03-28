@@ -29,7 +29,18 @@ rails g model like user:references activity:references
   has_many :likes, dependent: :nullify
   has_many :liked_activity, through: :likes, source: :activity
 ```
-* Like model when creating with references is automatically assigned, only if we want them be unique we can add constrains as
+* To create a chain we can have
+```ruby
+a = Activity.last
+b = User.last
+a.liked_user << b
+```
+* To access all users that likes an activity we can have below and in order to travers we can cancate `.each` to end and go through 
+```ruby
+a = Activity.last
+a.liked_user
+```
+* `Like` model when creating with references is automatically assigned, only if we want them be unique we can add constrains as
 ```ruby
 
 ```
