@@ -12,3 +12,24 @@ has_secure_password
 ```ruby
 User.create(email: 'amir', password: '1234')
 ```
+#### Like and Activity models
+```ruby
+rails g model activity name schedule url_img 
+```
+```ruby
+rails g model like user:references activity:references
+```
+* Activity Model
+```ruby
+  has_many :likes, dependent: :nullify
+  has_many :liked_user, through: :likes, source: :user
+```
+* And same for User Model
+```ruby
+  has_many :likes, dependent: :nullify
+  has_many :liked_activity, through: :likes, source: :activity
+```
+* Like model when creating with references is automatically assigned, only if we want them be unique we can add constrains as
+```ruby
+
+```
