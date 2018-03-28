@@ -2,7 +2,7 @@ https://github.com/anabaei/codeCore/tree/master/Day42_API_Rails/awesome_answers_
 
 https://github.com/anabaei/codeCore/tree/master/Day42_API_Rails/AwesomeAnswerSPA
 * [google map json](https://github.com/apneadiving/Google-Maps-for-Rails#generating-json)
-* [Font Awesome](https://github.com/FortAwesome/font-awesome-sass)
+* [Font Awesome5](https://github.com/tomkra/font_awesome5_rails)
 ## Railsl API 
 ```ruby
 pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
