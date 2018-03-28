@@ -62,6 +62,15 @@ q.likers = User.where(first_name: 'jon) it returns an array of users
 activerecord collection has its own << which are really commands that everyone can define them or costomize them.
 to avoid a user to like a thing twice we use validation 
 
+##### Model
+* Name of model is activity in relation many to many with user model through a middle table named like
+```ruby
+class Activity < ApplicationRecord
+  has_many :likes, dependent: :nullify
+  has_many :liked_user, through: :likes, source: :user
+end
+```
+
 ##### in like model
 
 The following validation guarantee that there can be only one of the same question_id per user_id. This means that a user 
