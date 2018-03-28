@@ -1,4 +1,4 @@
-
+## Models
 
 ### User Password
 ```linux
@@ -34,3 +34,17 @@ rails g model like user:references activity:references
 
 ```
 * Then rails db:migrate can run!
+
+## Seed 
+* Simple seed can be written as 
+```ruby
+User.destroy_all
+rand(2..5).times do
+   User.create(
+     email: Faker::Internet.email,
+     password: "1234"
+   )
+ end
+   users = User.all
+puts Cowsay.say("Created #{users.count} users", :tux)   
+```
