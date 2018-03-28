@@ -1,0 +1,31 @@
+
+
+ <!-- Check the list of all activities in order -->
+<%   @activities.each do |act| %><br />
+   <% like_exist = false %>
+    <%= act.name  %>
+     <%= image_tag act.url_img %>
+
+           <!-- For each activity check in the list of all users that liked this activity to find whether is the current user  -->
+    <% act.liked_user.each do |usr|  %>
+        <% if (@liked != nil && usr.id == current_user.id) %>
+              <% like_exist = true %>
+              <%=  icon('fas', 'heart',  id: 'my-icon', class: 'strong') %>
+              <%= link_to "Remove",  activity_like_path(act.id, current_user.id), method: :delete %>
+         <% end %>
+     <% end %>
+
+     <% if like_exist == false %>
+         <%=  icon('far', 'heart',  id: 'my-icon', class: 'strong') %>
+       <%= link_to "Add", activity_likes_path(act.id), class: "icon-big", method: :post  %>
+     <% end %>
+
+
+
+     <% a = Like.where(activity_id: act.id) %>
+     <% a.size %>
+     <% session[:user_id].present? %>
+     <% user_signed_in? %>
+
+
+<% end %>
