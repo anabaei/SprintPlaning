@@ -33,3 +33,4 @@ rails g model like user:references activity:references
 ```ruby
 
 ```
+* Then rails db:migrate can run!
