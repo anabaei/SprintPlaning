@@ -59,3 +59,76 @@ rand(2..5).times do
    users = User.all
 puts Cowsay.say("Created #{users.count} users", :tux)   
 ```
+
+## View page
+* inside activity index add list of all acitvities 
+```ruby
+<%   @activities.each do |act| %><br />
+   <% like_exist = false %>
+     <%= image_tag act.url_img , size%>
+           <!-- For each activity check in the list of all users that liked this activity to find whether is the current user  -->
+    <% act.liked_user.each do |usr|  %>
+        <% if (@liked != nil && usr.id == current_user.id) %>
+              <% like_exist = true %>
+              <%=  icon('fas', 'heart',  id: 'my-icon', class: 'strong') %>
+              <%= link_to "Remove",  activity_like_path(act.id, current_user.id), method: :delete %>
+         <% end %>
+     <% end %>
+     <% if like_exist == false %>
+         <%=  icon('far', 'heart',  id: 'my-icon', class: 'strong') %>
+       <%= link_to "Add", activity_likes_path(act.id), class: "icon-big", method: :post  %>
+     <% end %>
+```
+## Controllers
+* Likes controller would be like 
+```ruby
+def create
+   like          = Like.new
+   activity      = Activity.find params[:activity_id]
+   like.activity = activity
+   like.user     = User.first # current_user
+   if like.save
+     redirect_to root_path, notice: "Thanks for liking!"
+   else
+     redirect_to root_path, alert: "Can't like! Liked already?"
+   end
+ end
+
+ def destroy
+    like = Like.find_by user_id: params[:id], activity_id: params[:activity_id]
+    like.destroy
+   redirect_to root_path, notice: "Like removed!"
+ end
+```
+* Activities controller would be like (imaging a user John is created by seed sicne we have not assign users authentications and sessionp[:user_id]
+```ruby
+def index
+    @activities = Activity.order(:name)
+     # find_by current_user
+    session[:user_id] = User.find_by(first_name: "John");
+    @liked = Like.find_by(user_id: session[:user_id])
+  end
+```
+* In application_controller we add
+```ruby
+def user_signed_in?
+   if session[:user_id].present? && current_user.nil?
+     session[:user_id] = nil
+   end
+   session[:user_id].present?
+ end
+ helper_method :user_signed_in?
+   def current_user
+       @current_user ||= User.find_by(id: session[:user_id])
+   end
+   helper_method :current_user
+```
+## Routs 
+* The routes would be like 
+```ruby
+ resources :activities do
+      resources :likes, only: [:create, :destroy]
+ end
+ root to: 'activities#index'
+```
+
