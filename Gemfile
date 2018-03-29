@@ -36,6 +36,8 @@ gem 'font-awesome-sass', '~> 5.0.6'
 gem 'font-awesome5-rails', '~> 1.0', '>= 1.0.1'
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
+gem 'simple_form'
+gem 'bcrypt-ruby'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

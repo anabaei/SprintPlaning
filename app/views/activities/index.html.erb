@@ -8,13 +8,6 @@
     max-width: 220px;
 
   }
-  .image1{
-
-    max-width: 220px;
-
-  }
-
-
 
 
 </style>
@@ -24,7 +17,11 @@
   <nav class="nav nav-pills flex-column flex-sm-row">
 <a class="flex-sm-fill text-sm-center nav-link active" href="#">Active</a>
 <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
-<a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
+<a class="flex-sm-fill text-sm-center nav-link">
+ <%= link_to 'Sign Out', sessions_path, method: :delete %>
+ <%= link_to 'Sign in', new_sessions_path %>
+</a>
+
 <a class="flex-sm-fill text-sm-center nav-link disabled" href="#">Disabled</a>
 </nav>
 
